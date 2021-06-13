@@ -11,13 +11,13 @@ let pcScore = 0
 function randomComputerChoice() {
     randomNumber = Math.floor(Math.random() * possibleChoices.length)
     if (randomNumber === 0) {
-        computerChoice = 'r'
+        computerChoice = 'Rock'
     }
     if (randomNumber === 1) {
-        computerChoice = 'p'
+        computerChoice = 'Paper'
     }
     if (randomNumber === 2) {
-        computerChoice = 's'
+        computerChoice = 'Scissors'
     }
 }
 
@@ -38,15 +38,22 @@ function winner() {
     if (playerChoice == computerChoice) {
         playerResultDisplay.innerHTML = "Draw";
         computerResultDisplay.innerHTML = "Draw";
-    } else if (playerChoice == 'r' & computerChoice == 's' || playerChoice == 'p' & computerChoice == 'r' || playerChoice == 's' & computerChoice == 'p') {
+        playerResultDisplay.style.color = '#595959'
+        computerResultDisplay.style.color = '#595959'
+
+    } else if (playerChoice == 'Rock' & computerChoice == 'Scissors' || playerChoice == 'Paper' & computerChoice == 'Rock' || playerChoice == 'Scissors' & computerChoice == 'Paper') {
         playerResultDisplay.innerHTML = "Winner!"
-        computerResultDisplay.innerHTML = "Loser!"
+        playerResultDisplay.style.color = 'green'
+        computerResultDisplay.innerHTML = "Loser"
+        computerResultDisplay.style.color = 'red'
         plScore++
         playerScore.textContent = plScore
 
     } else {
-        playerResultDisplay.innerHTML = "Loser!"
+        playerResultDisplay.innerHTML = "Loser"
+        playerResultDisplay.style.color = 'red'
         computerResultDisplay.innerHTML = "Winner!"
+        computerResultDisplay.style.color = 'green'
         pcScore++
         computerScore.textContent = pcScore
     }
