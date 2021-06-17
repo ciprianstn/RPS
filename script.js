@@ -5,8 +5,39 @@ const computerScore = document.getElementById("computerScore")
 const possibleChoices = document.querySelectorAll('.far')
 const playerResultDisplay = document.getElementById('playerResult')
 const computerResultDisplay = document.getElementById('computerResult')
+const firstToRounds = document.getElementById('firstToRounds')
+const bestOfThree = document.getElementById('bestOf3')
+const bestOfFive = document.getElementById('bestOf5')
+const bestOfSeven = document.getElementById('bestOf7')
+const selectRoundsContainer = document.getElementById('selectRoundsContainer')
+const winnerText = document.getElementById('winnerText')
+const winnerScreen = document.getElementById('winnerScreen')
+const rockIcon = document.getElementById('Rock')
+
 let plScore = 0
 let pcScore = 0
+var roundsToWin
+
+function firstToWin() {
+    selectRoundsContainer.classList.add('hideRoundsContainer')
+}
+
+bestOfThree.addEventListener('click', () => {
+    roundsToWin = 2
+    firstToRounds.innerHTML = 'Great! First to win 2 rounds is the winner!'
+    setTimeout('firstToWin()', 1500)
+})
+bestOfFive.addEventListener('click', () => {
+    roundsToWin = 3
+    firstToRounds.innerHTML = 'Great! First to win 3 rounds is the winner!'
+    setTimeout('firstToWin()', 1500)
+
+})
+bestOfSeven.addEventListener('click', () => {
+    roundsToWin = 4
+    firstToRounds.innerHTML = 'Great! First to win 4 rounds is the winner!'
+    setTimeout('firstToWin()', 1500)
+})
 
 function randomComputerChoice() {
     randomNumber = Math.floor(Math.random() * possibleChoices.length)
@@ -26,14 +57,14 @@ possibleChoices.forEach(possibleChoice => {
     possibleChoice.addEventListener('click', (e) => {
         playerChoice = e.target.id
         randomComputerChoice()
-        winner()
+        play()
         playerChoiceDisplay.innerHTML = playerChoice;
         computerChoiceDisplay.innerHTML = computerChoice;
-
+        winner()
     })
 })
 
-function winner() {
+function play() {
 
     if (playerChoice == computerChoice) {
         playerResultDisplay.innerHTML = "Draw";
@@ -56,5 +87,16 @@ function winner() {
         computerResultDisplay.style.color = 'green'
         pcScore++
         computerScore.textContent = pcScore
+    }
+}
+
+function winner() {
+    if (plScore == roundsToWin) {
+        winnerText.innerHTML = 'You won!'
+        winnerScreen.classList.add('displayWinnerScreen')
+    } else if (pcScore == roundsToWin) {
+        winnerText.innerHTML = 'You lost!'
+        winnerScreen.classList.add('displayWinnerScreen')
+
     }
 }

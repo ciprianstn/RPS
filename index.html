@@ -48,10 +48,26 @@
                 <h1 id="computerResult"></h1>
             </div>
         </div>
-        <div class="new-game">
-            <button id="newGame" onClick="window.location.reload()">New game</button>
+    </div>
+    <!-- First screen, select number of rounds -->
+    <div class="selectRoundsContainer" id="selectRoundsContainer">
+        <div class="selectRounds">
+            <h2>Welcome to Rock, Paper, Scissors</h2>
+            <p>How many rounds do you want to play?</p>
+            <button id="bestOf3" value="three">Best of 3</button>
+            <button id="bestOf5" value="five">Best of 5</button>
+            <button id="bestOf7" value="seven">Best of 7</button>
+            <h3 id="firstToRounds"></h3>
         </div>
     </div>
+
+    <!-- Winner screen, play new game -->
+    <div class="winnerScreen" id="winnerScreen">
+        <h1 id="winnerText"></h1>
+        <button id="newGameBtn" class="newGameBtn" onClick="window.location.reload();">New Game</button>
+    </div>
+
+
     <script src="./script.js"></script>
 </body>
 

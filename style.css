@@ -33,6 +33,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 600px;
 }
 
 .score-div {
@@ -63,7 +64,9 @@ body {
 .choices {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 450px;
 }
 
 #playerChoice,
@@ -77,12 +80,85 @@ body {
     margin-top: 20px;
 }
 
-.new-game {
-    margin-top: 70px;
+.selectRoundsContainer {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(235, 232, 232);
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .5s ease-in-out all;
 }
 
-#newGame {
+.selectRounds {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 11;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectRounds button {
+    width: 100px;
+    height: 30px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: rgba(235, 232, 232, .7);
+    transition: .1s all ease-in-out;
+}
+
+.selectRounds button:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+.selectRounds p {
+    margin: 20px 0 40px 0;
+}
+
+.selectRounds h3 {
+    margin-top: 20px;
+}
+
+.hideRoundsContainer {
+    display: none;
+}
+
+.winnerScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(182, 182, 182);
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
+    transition: .5s ease-in-out all;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.winnerScreen h1 {
+    margin-bottom: 50px;
+}
+
+.newGameBtn {
     padding: 5px 10px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.displayWinnerScreen {
+    display: flex;
 }
 
 @media only screen and (max-width: 650px) {
