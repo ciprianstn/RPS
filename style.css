@@ -171,4 +171,10 @@ body {
     #computerResult {
         margin-left: 0;
     }
+    .choices {
+        width: 350px;
+    }
+    .selectRounds {
+        width: 350px;
+    }
 }
