@@ -92,10 +92,10 @@ function play() {
 
 function winner() {
     if (plScore == roundsToWin) {
-        winnerText.innerHTML = 'You won!'
+        winnerText.innerHTML = `You won! Final score ${plScore} - ${pcScore}`
         winnerScreen.classList.add('displayWinnerScreen')
     } else if (pcScore == roundsToWin) {
-        winnerText.innerHTML = 'You lost!'
+        winnerText.innerHTML = `You lost! Final score ${plScore} - ${pcScore}`
         winnerScreen.classList.add('displayWinnerScreen')
 
     }
