@@ -41,7 +41,8 @@ body {
     justify-content: space-evenly;
 }
 
-.main-div {
+.tap {
+    text-align: center;
     margin-top: 80px;
 }
 
